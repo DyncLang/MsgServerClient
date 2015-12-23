@@ -12,20 +12,24 @@
 	<dict>
 		<key>EF4F3A1BA36DF1AEEB0AF6883DD98EC5F107D2ED</key>
 		<string>https://github.com/DyncKevin/MsgServer.git</string>
+		<key>F588BA85DA813FFA9ED4EE5B9FA8272D4E45C56E</key>
+		<string>https://github.com/DyncKevin/MsgServerClient.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>dyncRTCMsgClient/dyncRTCMsgClient.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EF4F3A1BA36DF1AEEB0AF6883DD98EC5F107D2ED</key>
+		<string>../../../../MsgServer</string>
+		<key>F588BA85DA813FFA9ED4EE5B9FA8272D4E45C56E</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/DyncKevin/MsgServer.git</string>
+	<string>https://github.com/DyncKevin/MsgServerClient.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>EF4F3A1BA36DF1AEEB0AF6883DD98EC5F107D2ED</string>
+	<string>F588BA85DA813FFA9ED4EE5B9FA8272D4E45C56E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>EF4F3A1BA36DF1AEEB0AF6883DD98EC5F107D2ED</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MsgServer</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F588BA85DA813FFA9ED4EE5B9FA8272D4E45C56E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MsgServerClient</string>
 		</dict>
 	</array>
 </dict>

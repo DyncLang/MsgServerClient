@@ -34,7 +34,6 @@ public:
     int LeaveRoom(const std::string& userid, const std::string& pass, const std::string& roomid);
     int DestroyRoom(const std::string& userid, const std::string& pass, const std::string& roomid);
     int SndMsgTo(const std::string& userid, const std::string& pass, const std::string& roomid, const std::string& msg, const std::list<std::string>& ulist);
-    bool RefreshTime();
     
     TcpState Status() { if(m_pClient) return m_pClient->Status();else return NOT_CONNECTED; }
     
@@ -48,6 +47,7 @@ public:
     virtual void OnMessageSent(int err);
     virtual void OnMessageRecv(const char*pData, int nLen);
 private:
+    bool RefreshTime();
     int KeepAlive();
 private:
     XTcpClient*              m_pClient;

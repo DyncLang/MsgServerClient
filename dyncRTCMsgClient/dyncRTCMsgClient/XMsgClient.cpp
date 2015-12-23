@@ -73,7 +73,7 @@ int XMsgClient::SndMsg(const std::string& userid, const std::string& pass, const
     std::string outstr;
     if (m_pMsgProcesser) {
         //outstr, userid, pass, roomid, to, msg, cmd, action, tags, type
-        m_pMsgProcesser->EncodeSndMsg(outstr, userid, "tokenfromhttpserver", roomid, "a", msg, MEETCMD::dcomm, DCOMMACTION::msend, SENDTAGS::talk, SENDTYPE::msg);
+        m_pMsgProcesser->EncodeSndMsg(outstr, userid, pass, roomid, "a", msg, MEETCMD::dcomm, DCOMMACTION::msend, SENDTAGS::talk, SENDTYPE::msg);
     } else {
         return -1;
     }
@@ -131,7 +131,7 @@ int XMsgClient::CreateRoom(const std::string& userid, const std::string& pass, c
     std::string outstr;
     if (m_pMsgProcesser) {
         //outstr, userid, pass, roomid, to, msg, cmd, action, tags, type
-        m_pMsgProcesser->EncodeSndMsg(outstr, userid, "tokenfromhttpserver", roomid, "", "", MEETCMD::create, 0, 0, 0);
+        m_pMsgProcesser->EncodeSndMsg(outstr, userid, pass, roomid, "", "", MEETCMD::create, 0, 0, 0);
     } else {
         return -1;
     }
@@ -151,7 +151,7 @@ int XMsgClient::EnterRoom(const std::string& userid, const std::string& pass, co
     std::string outstr;
     if (m_pMsgProcesser) {
         //outstr, userid, pass, roomid, to, msg, cmd, action, tags, type
-        m_pMsgProcesser->EncodeSndMsg(outstr, userid, "tokenfromhttpserver", roomid, "", "", MEETCMD::enter, 0, 0, 0);
+        m_pMsgProcesser->EncodeSndMsg(outstr, userid, pass, roomid, "", "", MEETCMD::enter, 0, 0, 0);
     } else {
         return -1;
     }
@@ -171,7 +171,7 @@ int XMsgClient::LeaveRoom(const std::string& userid, const std::string& pass, co
     std::string outstr;
     if (m_pMsgProcesser) {
         //outstr, userid, pass, roomid, to, msg, cmd, action, tags, type
-        m_pMsgProcesser->EncodeSndMsg(outstr, userid, "tokenfromhttpserver", roomid, "", "", MEETCMD::leave, 0, 0, 0);
+        m_pMsgProcesser->EncodeSndMsg(outstr, userid, pass, roomid, "", "", MEETCMD::leave, 0, 0, 0);
     } else {
         return -1;
     }
@@ -191,7 +191,7 @@ int XMsgClient::DestroyRoom(const std::string& userid, const std::string& pass, 
     std::string outstr;
     if (m_pMsgProcesser) {
         //outstr, userid, pass, roomid, to, msg, cmd, action, tags, type
-        m_pMsgProcesser->EncodeSndMsg(outstr, userid, "tokenfromhttpserver", roomid, "", "", MEETCMD::destroy, 0, 0, 0);
+        m_pMsgProcesser->EncodeSndMsg(outstr, userid, pass, roomid, "", "", MEETCMD::destroy, 0, 0, 0);
     } else {
         return -1;
     }
@@ -213,7 +213,7 @@ int XMsgClient::SndMsgTo(const std::string& userid, const std::string& pass, con
         //outstr, userid, pass, roomid, to, msg, cmd, action, tags, type
         std::string tousers;
         m_pMsgProcesser->GetMemberToJson(ulist, tousers);
-        m_pMsgProcesser->EncodeSndMsg(outstr, userid, "tokenfromhttpserver", roomid, tousers, msg, MEETCMD::dcomm, DCOMMACTION::msend, SENDTAGS::talk, SENDTYPE::msg);
+        m_pMsgProcesser->EncodeSndMsg(outstr, userid, pass, roomid, tousers, msg, MEETCMD::dcomm, DCOMMACTION::msend, SENDTAGS::talk, SENDTYPE::msg);
     } else {
         return -1;
     }
@@ -228,6 +228,10 @@ int XMsgClient::SndMsgTo(const std::string& userid, const std::string& pass, con
     return 0;
 }
 
+////////////////////////////////////////////
+////////////////private/////////////////////
+////////////////////////////////////////////
+
 bool XMsgClient::RefreshTime()
 {
     uint32 now = rtc::Time();
@@ -239,10 +243,6 @@ bool XMsgClient::RefreshTime()
         return false;
     }
 }
-
-////////////////////////////////////////////
-////////////////private/////////////////////
-////////////////////////////////////////////
 
 int XMsgClient::KeepAlive()
 {
